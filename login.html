@@ -1,123 +1,183 @@
 <!DOCTYPE html>
 <html lang="mn">
-<head>
-<meta charset="UTF-8">
-<title>Нэвтрэх - Онлайн сургалтын систем</title>
-<link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
-<div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+  <body>
+    <table border="1" width="100%" cellpadding="15" bgcolor="#f8f9fa">
+      <tr>
+        <td width="150" align="center" valign="middle">
+          <img src="images/logo.png" alt="Лого" width="120" />
+        </td>
+        <td width="*" valign="middle">
+          <h1>Онлайн сургалтын систем</h1>
+          <p><i>Боловсрол бол ирээдүй</i></p>
+        </td>
+        <td width="250" valign="middle">
+          <table border="0" cellpadding="5">
+            <tr>
+              <td><strong>Утас:</strong></td>
+              <td>77001122</td>
+            </tr>
+            <tr>
+              <td><strong>Імэйл:</strong></td>
+              <td>info@edu.mn</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
 
-<-u 'http://dog.htb/?q=accounts/FUZZ'
-# or
--u Толгой хэсэг -->
-<header class="header fade-in">
-<div class="header-content">
-<div class="logo-section">
-<img src="images/logo.png" alt="Лого">
-<div class="title-section">
-<h1>Онлайн сургалтын систем</h1>
-<p>Боловсрол бол ирээдүй</p>
-</div>
-</div>
-<div class="contact-info">
-<div><strong>Утас:</strong> 77001122</div>
-<div><strong>Імэйл:</strong> info@edu.mn</div>
-</div>
-</div>
-</header>
+    <table border="1" width="100%" cellpadding="10" bgcolor="#e9ecef">
+      <tr>
+        <td align="center"><a href="index.html">Нүүр хуудас</a></td>
+        <td align="center"><a href="member1/courses.html">Хичээлүүд</a></td>
+        <td align="center">
+          <a href="member2/dashboard.html">Хянах самбар</a>
+        </td>
+        <td align="center"><a href="member4/library.html">Номын сан</a></td>
+        <td align="center"><a href="member5/exams.html">Шалгалт</a></td>
+        <td align="center"><a href="member6/contact.html">Холбоо барих</a></td>
+        <td align="center" bgcolor="#007bff">
+          <a href="login.html"
+            ><font color="white"><strong>Нэвтрэх</strong></font></a
+          >
+        </td>
+      </tr>
+    </table>
 
-<-u 'http://dog.htb/?q=accounts/FUZZ'
-# or
--u Навигаци -->
-<nav class="navigation">
-<ul class="nav-menu">
-<li><a href="index.html">Нүүр хуудас</a></li>
-<li><a href="member1/courses.html">Хичээлүүд</a></li>
-<li><a href="member2/dashboard.html">Хянах самбар</a></li>
-<li><a href="member4/library.html">Номын сан</a></li>
-<li><a href="member5/exams.html">Шалгалт</a></li>
-<li><a href="member6/contact.html">Холбоо барих</a></li>
-<li class="login-btn"><a href="login.html">Нэвтрэх</a></li>
-</ul>
-</nav>
+    <br />
+    <h2>Системд нэвтрэх</h2>
 
-<-u 'http://dog.htb/?q=accounts/FUZZ'
-# or
--u Үндсэн агуулга -->
-<main class="main-content fade-in">
-<div class="page-title">
-<h2>Системд нэвтрэх</h2>
-</div>
+    <form>
+      <table border="1" cellpadding="10">
+        <tr>
+          <td>Нэвтрэх нэр:</td>
+          <td><input type="text" name="username" size="30" /></td>
+        </tr>
+        <tr>
+          <td>Нууц үг:</td>
+          <td><input type="password" name="password" size="30" /></td>
+        </tr>
+        <tr>
+          <td>Хэрэглэгчийн төрөл:</td>
+          <td>
+            <select name="usertype">
+              <option value="student">Оюутан</option>
+              <option value="teacher">Багш</option>
+              <option value="admin">Админ</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" value="Нэвтрэх" />
+            <input type="reset" value="Цэвэрлэх" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <br />
+    <p>
+      <a href="register.html">Бүртгүүлэх</a>
+    </p>
 
-<div class="form-container">
-<form>
-<div class="form-group">
-<label for="username">Нэвтрэх нэр:</label>
-<input type="text" id="username" name="username" required>
-</div>
-
-<div class="form-group">
-<label for="password">Нууц үг:</label>
-<input type="password" id="password" name="password" required>
-</div>
-
-<div class="form-group">
-<label for="usertype">Хэрэглэгчийн төрөл:</label>
-<select id="usertype" name="usertype">
-<option value="student">Оюутан</option>
-<option value="teacher">Багш</option>
-<option value="admin">Админ</option>
-</select>
-</div>
-
-<div class="form-group">
-<button type="submit" class="btn btn-primary">Нэвтрэх</button>
-<button type="reset" class="btn btn-secondary" style="background-color: #95a5a6; color: white; margin-left: 10px;">Цэвэрлэх</button>
-</div>
-</form>
-
-<div class="link-list" style="margin-top: 30px;">
-<p style="text-align: center;">Бүртгэлгүй юу? <a href="register.html" style="font-weight: bold;">Энд дарж бүртгүүлнэ үү</a></p>
-<p style="text-align: center;"><a href="index.html">Нүүр хуудас руу буцах</a></p>
-</div>
-</div>
-
-</main>
-
-<-u 'http://dog.htb/?q=accounts/FUZZ'
-# or
--u Хөл хэсэг -->
-<footer class="footer">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Онлайн сургалтын систем</h3>
-<p>Манай системд 1,500 гаруй оюутан, 200 гаруй багш нар идэвхтэй ажиллаж байна.</p>
-<p><strong>Хаяг:</strong> Улаанбаатар хот, Сүхбаатар дүүрэг, 1-р хороо</p>
-</div>
-<div class="footer-section">
-<h3>Холбоос</h3>
-<ul>
-<li><a href="member6/contact.html">Холбоо барих</a></li>
-<li><a href="member6/policies.html">Дүрэм журам</a></li>
-<li><a href="member6/privacy.html">Нууцлалын бодлого</a></li>
-<li><a href="member6/terms.html">Үйлчилгээний нөхцөл</a></li>
-<li><a href="member6/admin.html">Администрацийн хэсэг</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h3>Холбогдох</h3>
-<p><strong>Утас:</strong> 77001122, 99112233</p>
-<p><strong>Факс:</strong> 70111222</p>
-<p><strong>Імэйл:</strong> info@edu.mn</p>
-<p><strong>Ажлын цаг:</strong> Даваа-Баасан 09:00-18:00</p>
-</div>
-</div>
-<div class="footer-bottom">
-© 2025 Онлайн сургалтын систем. Бүх эрх хуулиар хамгаалагдсан. | Хөгжүүлсэн: Веб хөгжүүлэлтийн баг
-</div>
-</footer>
-
-</div>
-</body>
+    <table border="1" width="100%" cellpadding="15" bgcolor="#2c3e50">
+      <tr>
+        <td width="33%" valign="top">
+          <font color="white">
+            <h3>Онлайн сургалтын систем</h3>
+            <p>
+              Манай системд 1,500 гаруй оюутан, 200 гаруй багш нар идэвхтэй
+              ажиллаж байна.
+            </p>
+            <p>
+              <strong>Хаяг:</strong> Улаанбаатар хот, Сүхбаатар дүүрэг, 1-р
+              хороо
+            </p>
+          </font>
+        </td>
+        <td width="33%" valign="top">
+          <font color="white">
+            <h3>Холбоосууд</h3>
+            <ul>
+              <li>
+                <a href="../member1/courses.html"
+                  ><font color="white">Хичээлүүд</font></a
+                >
+              </li>
+              <li>
+                <a href="../member2/dashboard.html"
+                  ><font color="white">Хянах самбар</font></a
+                >
+              </li>
+              <li>
+                <a href="../member3/instructors.html"
+                  ><font color="white">Багш нар</font></a
+                >
+              </li>
+              <li>
+                <a href="../member4/library.html"
+                  ><font color="white">Номын сан</font></a
+                >
+              </li>
+              <li>
+                <a href="../member5/exams.html"
+                  ><font color="white">Шалгалтууд</font></a
+                >
+              </li>
+            </ul>
+            <h3>Удирдлага</h3>
+            <ul>
+              <li>
+                <a href="../member6/admin.html"
+                  ><font color="white">Администратор</font></a
+                >
+              </li>
+              <li>
+                <a href="../member6/contact.html"
+                  ><font color="white">Холбоо барих</font></a
+                >
+              </li>
+              <li>
+                <a href="../member6/policies.html"
+                  ><font color="white">Дүрэм журам</font></a
+                >
+              </li>
+              <li>
+                <a href="../member6/privacy.html"
+                  ><font color="white">Нууцлалын бодлого</font></a
+                >
+              </li>
+              <li>
+                <a href="../member6/terms.html"
+                  ><font color="white">Үйлчилгээний нөхцөл</font></a
+                >
+              </li>
+            </ul>
+          </font>
+        </td>
+        <td width="34%" valign="top">
+          <font color="white">
+            <h3>Холбогдох</h3>
+            <p><strong>Утас:</strong> 77001122, 99112233</p>
+            <p><strong>Факс:</strong> 70111222</p>
+            <p><strong>Імэйл:</strong> info@edu.mn</p>
+            <p><strong>Ажлын цаг:</strong> Даваа-Баасан 09:00-18:00</p>
+          </font>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center" bgcolor="#1a252f">
+          <font color="white">
+            <small
+              >© 2025 Онлайн сургалтын систем. Бүх эрх хуулиар хамгаалагдсан. |
+              Хөгжүүлсэн: Веб хөгжүүлэлтийн баг</small
+            >
+          </font>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>
