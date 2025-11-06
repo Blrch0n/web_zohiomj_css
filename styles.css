@@ -1,0 +1,638 @@
+/* ----------------------------------------------------------
+   Collab-like skin for your existing table-based HTML
+   (no HTML changes required)
+   ---------------------------------------------------------- */
+
+/* 1) Fonts, colors, resets */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+:root {
+  --brand: #ffd54a; /* Collab yellow */
+  --ink: #171611; /* near-black */
+  --text: #222222;
+  --muted: #6b7280;
+  --edge: #e5e7eb; /* light border */
+  --card: #ffffff;
+  --footer: #15140e;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.5;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0 !important;
+  background: transparent;
+}
+td,
+th {
+  border: 0;
+}
+
+/* kill legacy <font color=""> so our palette wins */
+font[color] {
+  color: inherit !important;
+}
+
+/* 2) Page container + clean white background */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Clean white background for all pages */
+body {
+  background: #ffffff;
+}
+
+/* 3) Top “brand” header (first light table) */
+table[bgcolor="#f8f9fa"] {
+  background: transparent;
+  padding: 12px 0;
+}
+table[bgcolor="#f8f9fa"] tr {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+table[bgcolor="#f8f9fa"] td:nth-child(1) {
+  width: 160px;
+}
+table[bgcolor="#f8f9fa"] td:nth-child(2) {
+  flex: 1;
+}
+table[bgcolor="#f8f9fa"] td:nth-child(3) {
+  width: 320px;
+}
+table[bgcolor="#f8f9fa"] h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+table[bgcolor="#f8f9fa"] p {
+  margin: 4px 0 0;
+  color: #3a3a3a;
+}
+
+/* 4) Main nav (second light-grey table) → clean white, sticky bar with pills */
+table[bgcolor="#e9ecef"] {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid var(--edge);
+}
+table[bgcolor="#e9ecef"] tr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+}
+table[bgcolor="#e9ecef"] td {
+  border: 0;
+}
+table[bgcolor="#e9ecef"] a {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--ink);
+}
+table[bgcolor="#e9ecef"] td:last-child a {
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+}
+table[bgcolor="#e9ecef"] td:last-child a:hover {
+  opacity: 0.92;
+  text-decoration: none;
+}
+
+/* 5) Index hero title + subcopy (your <h2> and the next <p>) */
+.container h2:first-of-type {
+  color: var(--ink);
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 40px 0 6px;
+  max-width: 740px;
+  padding-top: 20px;
+}
+.container h2:first-of-type + p {
+  margin: 0 0 32px;
+  max-width: 680px;
+  font-size: 18px;
+  color: #2d2d2d;
+  text-align: left !important; /* override old align="center" */
+}
+
+/* 6) "Three cards" section (3rd table inside .container) */
+.container > table:nth-of-type(3) {
+  margin: 16px 0 32px;
+}
+.container > table:nth-of-type(3) tr {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.container > table:nth-of-type(3) td {
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.container > table:nth-of-type(3) td:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+.container > table:nth-of-type(3) h3 {
+  margin: 6px 0 8px;
+  font-size: 22px;
+  color: var(--ink);
+}
+.container > table:nth-of-type(3) p {
+  margin: 0 0 14px;
+  color: #3a3a3a;
+}
+.container > table:nth-of-type(3) button {
+  all: unset;
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.container > table:nth-of-type(3) a:hover button {
+  opacity: 0.92;
+}
+
+/* 7) "Онцлох мэдээлэл" (4th table, two columns) */
+.container > table:nth-of-type(4) tr {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.container > table:nth-of-type(4) td {
+  background: #fff;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.container > table:nth-of-type(4) h4 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--ink);
+}
+.container > table:nth-of-type(4) ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.container > table:nth-of-type(4) li {
+  margin: 6px 0;
+}
+.container > table:nth-of-type(4) a {
+  color: #0f172a;
+}
+.container > table:nth-of-type(4) a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* 8) "Статистик мэдээлэл" (5th table) → stat blocks */
+.container > table:nth-of-type(5) {
+  background: #fff;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.container > table:nth-of-type(5) tr:first-child {
+  background: #fafafa;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.container > table:nth-of-type(5) th,
+.container > table:nth-of-type(5) td {
+  padding: 18px;
+  text-align: center;
+}
+.container > table:nth-of-type(5) td h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* 9) Auth pages (login & register) – center the form as a card */
+form > table {
+  width: min(520px, 92%);
+  margin: 18px auto 40px;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+form > table tr {
+  display: block;
+  margin: 0 0 14px;
+}
+form > table td:first-child {
+  display: block;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+form > table input[type="text"],
+form > table input[type="password"],
+form > table input[type="email"],
+form > table input[type="tel"],
+form > table select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  font: inherit;
+  outline: 0;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+form > table input:focus,
+form > table select:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 4px rgba(23, 22, 17, 0.1);
+}
+form > table td[colspan="2"] {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+}
+form > table input[type="submit"],
+form > table input[type="reset"] {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+form > table input[type="submit"] {
+  background: var(--ink);
+  color: #fff;
+}
+form > table input[type="submit"]:hover {
+  opacity: 0.92;
+}
+form > table input[type="reset"] {
+  background: #f3f4f6;
+  color: #111;
+}
+h2 {
+  text-align: center;
+  font-size: 40px;
+  margin: 26px 0 10px;
+  color: var(--ink);
+}
+p > a {
+  color: #0f172a;
+  text-decoration: underline;
+}
+
+/* 10) Footer (dark table) */
+table[bgcolor="#2c3e50"] {
+  background: var(--footer);
+  color: #e7e3db;
+  margin-top: 40px;
+}
+table[bgcolor="#2c3e50"] tr:first-child {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 36px;
+  padding: 48px 24px;
+}
+table[bgcolor="#2c3e50"] h3 {
+  margin: 0 0 10px;
+  color: #fff;
+}
+table[bgcolor="#2c3e50"] p,
+table[bgcolor="#2c3e50"] li {
+  color: #d4d2c9;
+}
+table[bgcolor="#2c3e50"] ul {
+  margin: 0 0 18px;
+  padding-left: 18px;
+}
+table[bgcolor="#2c3e50"] a {
+  color: #fff;
+  text-decoration: none;
+}
+table[bgcolor="#2c3e50"] a:hover {
+  text-decoration: underline;
+}
+
+table[bgcolor="#2c3e50"] tr:last-child {
+  background: #1a1914;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+table[bgcolor="#2c3e50"] tr:last-child td {
+  text-align: center;
+  padding: 16px;
+  color: #c7c5ba;
+}
+
+/* 11) Small helpers */
+button,
+.btn {
+  cursor: pointer;
+}
+.center {
+  text-align: center;
+}
+
+/* 12) Enhanced login/register page styling - clean white */
+body:has(form) {
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+body:has(form) table[bgcolor="#f8f9fa"],
+body:has(form) table[bgcolor="#e9ecef"] {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Login form specific enhancements */
+form > table {
+  margin-top: 40px;
+  position: relative;
+}
+
+body:has(form) h2 {
+  color: var(--ink);
+  margin-top: 60px;
+}
+
+body:has(form) p {
+  text-align: center;
+  color: var(--text);
+  font-size: 16px;
+  margin: 10px 0 20px;
+}
+
+body:has(form) p a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px;
+  background: var(--brand);
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+body:has(form) p a:hover {
+  background: #ffdb33;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+/* 13) Responsive improvements */
+@media (max-width: 768px) {
+  .container > table:nth-of-type(3) tr,
+  .container > table:nth-of-type(4) tr {
+    grid-template-columns: 1fr;
+  }
+
+  table[bgcolor="#2c3e50"] tr:first-child {
+    grid-template-columns: 1fr;
+  }
+
+  .container h2:first-of-type {
+    font-size: 42px;
+  }
+
+  form > table {
+    width: 95%;
+  }
+}
+
+/* 19) Enhanced button styles for all pages */
+body:not(:has(.container)):not(:has(form)) {
+  background: #ffffff;
+}
+
+body:not(:has(.container)):not(:has(form)) table[bgcolor="#f8f9fa"],
+body:not(:has(.container)):not(:has(form)) table[bgcolor="#e9ecef"] {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body:not(:has(.container)):not(:has(form)) h2 {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+  color: var(--ink);
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+body:not(:has(.container)):not(:has(form)) h3 {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+body:not(:has(.container)):not(:has(form)) h4 {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+/* All member pages content tables */
+body:not(:has(.container)):not(:has(form)) > table:not([bgcolor="#f8f9fa"]):not([bgcolor="#e9ecef"]):not([bgcolor="#2c3e50"]) {
+  max-width: 1400px;
+  margin: 20px auto;
+  background: #fff;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body:not(:has(.container)):not(:has(form)) > table:not([bgcolor="#f8f9fa"]):not([bgcolor="#e9ecef"]):not([bgcolor="#2c3e50"]) th {
+  background: #f9fafb;
+  color: var(--ink);
+  font-weight: 700;
+  padding: 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--edge);
+}
+
+body:not(:has(.container)):not(:has(form)) > table:not([bgcolor="#f8f9fa"]):not([bgcolor="#e9ecef"]):not([bgcolor="#2c3e50"]) td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+body:not(:has(.container)):not(:has(form)) > table:not([bgcolor="#f8f9fa"]):not([bgcolor="#e9ecef"]):not([bgcolor="#2c3e50"]) tr:last-child td {
+  border-bottom: none;
+}
+
+body:not(:has(.container)):not(:has(form)) > table:not([bgcolor="#f8f9fa"]):not([bgcolor="#e9ecef"]):not([bgcolor="#2c3e50"]) tr:hover td {
+  background: #fafafa;
+}
+
+/* Member pages links in content */
+body:not(:has(.container)):not(:has(form)) > ul,
+body:not(:has(.container)):not(:has(form)) > ol {
+  max-width: 1400px;
+  margin: 16px auto;
+  padding: 24px 32px;
+  background: #fff;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body:not(:has(.container)):not(:has(form)) > ul li,
+body:not(:has(.container)):not(:has(form)) > ol li {
+  margin: 10px 0;
+  padding: 8px 0;
+  line-height: 1.6;
+}
+
+body:not(:has(.container)):not(:has(form)) > ul li a,
+body:not(:has(.container)):not(:has(form)) > ol li a {
+  color: #0f172a;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+body:not(:has(.container)):not(:has(form)) > ul li a:hover,
+body:not(:has(.container)):not(:has(form)) > ol li a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* Member pages paragraphs */
+body:not(:has(.container)):not(:has(form)) > p {
+  max-width: 1400px;
+  margin: 16px auto;
+  padding: 0 24px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* Breadcrumb styling */
+body:not(:has(.container)):not(:has(form)) > p:first-of-type {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+body:not(:has(.container)):not(:has(form)) > p:first-of-type a {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+body:not(:has(.container)):not(:has(form)) > p:first-of-type a:hover {
+  color: var(--ink);
+}
+
+/* 19) Enhanced button styles for all pages */
+button,
+input[type="button"],
+input[type="submit"] {
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+button:hover,
+input[type="button"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active,
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* 20) Focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* 21) Print styles */
+@media print {
+  table[bgcolor="#f8f9fa"],
+  table[bgcolor="#e9ecef"],
+  table[bgcolor="#2c3e50"] {
+    display: none;
+  }
+  
+  body {
+    background: #fff;
+  }
+}
